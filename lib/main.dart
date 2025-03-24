@@ -58,7 +58,6 @@ class MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           SizedBox(
             height: 10,
           ),
@@ -120,49 +119,35 @@ class MyCustomFormState extends State<MyCustomForm> {
           SizedBox(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: SizedBox(
-                  child: TextFormField(
-                    controller: _dateControler,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.calendar_today),
-                        labelText: 'Date:',
-                        filled: true),
-                    onTap: () {
-                      _selectDate(context);
-                    },
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Expanded(
+              child: SizedBox(
                 child: TextFormField(
-                  controller: _lastNameController,
+                  controller: _dateControler,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Address:',
-                    labelText: 'Address:',
-                  ),
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.calendar_today),
+                      labelText: 'Date:',
+                      filled: true),
+                  onTap: () {
+                    _selectDate(context);
+                  },
                 ),
               ),
-            ],
-
-        /*  TextFormField(
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-
-          ),
-        */
-          const SizedBox(height: 10),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: TextFormField(
+                controller: _lastNameController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Address:',
+                  labelText: 'Address:',
+                ),
+              ),
+            ),
+          ]),
+          SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -226,9 +211,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   child: CupertinoDatePicker(
                     mode: CupertinoDatePickerMode.date,
                     initialDateTime: DateTime(1969, 1, 1),
-                    onDateTimeChanged: (DateTime newDateTime) {
-
-                    },
+                    onDateTimeChanged: (DateTime newDateTime) {},
                   ),
                 ),
               ),
