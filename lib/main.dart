@@ -35,6 +35,7 @@ class MyCustomForm extends StatefulWidget {
 final TextEditingController _firstNameController = TextEditingController();
 final TextEditingController _lastNameController = TextEditingController();
 final TextEditingController _emailController = TextEditingController();
+final TextEditingController _contactController = TextEditingController();
 final TextEditingController _addressController = TextEditingController();
 final TextEditingController _dateControler = TextEditingController();
 
@@ -95,7 +96,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             children: [
               Expanded(
                 child: TextFormField(
-                  controller: _firstNameController,
+                  controller: _emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Email:',
@@ -106,7 +107,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               const SizedBox(width: 10),
               Expanded(
                 child: TextFormField(
-                  controller: _lastNameController,
+                  controller: _contactController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Contact Number:',
@@ -138,7 +139,7 @@ class MyCustomFormState extends State<MyCustomForm> {
             const SizedBox(width: 10),
             Expanded(
               child: TextFormField(
-                controller: _lastNameController,
+                controller: _addressController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Address:',
@@ -147,7 +148,6 @@ class MyCustomFormState extends State<MyCustomForm> {
               ),
             ),
           ]),
-          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: ElevatedButton(
