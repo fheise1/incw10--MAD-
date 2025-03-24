@@ -73,6 +73,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                     hintText: 'First Name:',
                     labelText: 'First Name:',
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
               ),
               const SizedBox(width: 10),
@@ -84,6 +90,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                     hintText: 'Last Name:',
                     labelText: 'Last Name:',
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
               ),
             ],
@@ -102,6 +114,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                     hintText: 'Email:',
                     labelText: 'Email:',
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
               ),
               const SizedBox(width: 10),
@@ -113,6 +131,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                     hintText: 'Contact Number:',
                     labelText: 'Contact Number:',
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
                 ),
               ),
             ],
@@ -145,6 +169,12 @@ class MyCustomFormState extends State<MyCustomForm> {
                   hintText: 'Address:',
                   labelText: 'Address:',
                 ),
+                validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
               ),
             ),
           ]),
