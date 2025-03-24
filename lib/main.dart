@@ -36,6 +36,7 @@ final TextEditingController _firstNameController = TextEditingController();
 final TextEditingController _lastNameController = TextEditingController();
 final TextEditingController _emailController = TextEditingController();
 final TextEditingController _addressController = TextEditingController();
+final TextEditingController _dateControler = TextEditingController();
 
 // Create a corresponding State class.
 // This class holds data related to the form.
@@ -46,6 +47,8 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Note: This is a GlobalKey<FormState>,
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
+
+  // Controllers for the text fields
 
   @override
   Widget build(BuildContext context) {
@@ -190,5 +193,19 @@ class MyCustomFormState extends State<MyCustomForm> {
         ],
       ),
     );
+  }
+}
+
+Future<void> _selectDate(BuildContext context) async {
+  DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime(2101),
+  );
+  if (picked != null) {
+    // Format the date as needed and update the controller
+    String formattedDate = "${picked.toLocal()}".split(' ')[0];
+    _dateControler.text = formattedDate; // Set the text of the controller
   }
 }
