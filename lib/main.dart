@@ -170,11 +170,11 @@ class MyCustomFormState extends State<MyCustomForm> {
                   labelText: 'Address:',
                 ),
                 validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
               ),
             ),
           ]),
