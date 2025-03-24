@@ -34,6 +34,8 @@ class MyCustomForm extends StatefulWidget {
 
 final TextEditingController _firstNameController = TextEditingController();
 final TextEditingController _lastNameController = TextEditingController();
+final TextEditingController _emailController = TextEditingController();
+final TextEditingController _addressController = TextEditingController();
 final TextEditingController _dateControler = TextEditingController();
 
 // Create a corresponding State class.
@@ -56,6 +58,7 @@ class MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           SizedBox(
             height: 10,
           ),
@@ -139,6 +142,100 @@ class MyCustomFormState extends State<MyCustomForm> {
               Expanded(
                 child: TextFormField(
                   controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Address:',
+                    labelText: 'Address:',
+                  ),
+                ),
+              ),
+            ],
+
+        /*  TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+
+          ),
+        */
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  controller: _firstNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'First Name:',
+                    labelText: 'First Name:',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Last Name:',
+                    labelText: 'Last Name:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Email:',
+                    labelText: 'Email:',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Contact Number:',
+                    labelText: 'Contact Number:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 200,
+                  child: CupertinoDatePicker(
+                    mode: CupertinoDatePickerMode.date,
+                    initialDateTime: DateTime(1969, 1, 1),
+                    onDateTimeChanged: (DateTime newDateTime) {
+
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _addressController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Address:',
