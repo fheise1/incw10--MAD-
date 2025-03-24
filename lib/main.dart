@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(const MyApp());
 
@@ -71,6 +72,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'First Name:',
+                    labelText: 'First Name:',
                   ),
                 ),
               ),
@@ -81,6 +83,61 @@ class MyCustomFormState extends State<MyCustomForm> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Last Name:',
+                    labelText: 'Last Name:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  controller: _firstNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Email:',
+                    labelText: 'Email:',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Contact Number:',
+                    labelText: 'Contact Number:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 200,
+                  child: CupertinoDatePicker(
+                    mode: CupertinoDatePickerMode.date,
+                    initialDateTime: DateTime(1969, 1, 1),
+                    onDateTimeChanged: (DateTime newDateTime) {
+                      // Do something
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Address:',
+                    labelText: 'Address:',
                   ),
                 ),
               ),
