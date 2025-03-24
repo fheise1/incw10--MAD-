@@ -36,6 +36,7 @@ final TextEditingController _firstNameController = TextEditingController();
 final TextEditingController _lastNameController = TextEditingController();
 final TextEditingController _emailController = TextEditingController();
 final TextEditingController _addressController = TextEditingController();
+final TextEditingController _dateControler = TextEditingController();
 
 // Create a corresponding State class.
 // This class holds data related to the form.
@@ -47,6 +48,8 @@ class MyCustomFormState extends State<MyCustomForm> {
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
 
+  // Controllers for the text fields
+
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
@@ -55,6 +58,99 @@ class MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  controller: _firstNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'First Name:',
+                    labelText: 'First Name:',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Last Name:',
+                    labelText: 'Last Name:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  controller: _firstNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Email:',
+                    labelText: 'Email:',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Contact Number:',
+                    labelText: 'Contact Number:',
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  child: TextFormField(
+                    controller: _dateControler,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.calendar_today),
+                        labelText: 'Date:',
+                        filled: true),
+                    onTap: () {
+                      _selectDate(context);
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: TextFormField(
+                  controller: _lastNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Address:',
+                    labelText: 'Address:',
+                  ),
+                ),
+              ),
+            ],
+
         /*  TextFormField(
             // The validator receives the text that the user has entered.
             validator: (value) {
@@ -63,6 +159,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               }
               return null;
             },
+
           ),
         */
           const SizedBox(height: 10),
@@ -167,5 +264,19 @@ class MyCustomFormState extends State<MyCustomForm> {
         ],
       ),
     );
+  }
+}
+
+Future<void> _selectDate(BuildContext context) async {
+  DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime(2101),
+  );
+  if (picked != null) {
+    // Format the date as needed and update the controller
+    String formattedDate = "${picked.toLocal()}".split(' ')[0];
+    _dateControler.text = formattedDate; // Set the text of the controller
   }
 }
